@@ -1,0 +1,165 @@
+html {
+  scroll-behavior: smooth;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-self: stretch;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card {
+  padding: 2em;
+}
+
+.muted {
+  color: #888;
+}
+
+.flex {
+  display: flex;
+}
+
+.palettes {
+  border-top: 1px solid #333;
+  padding-top: 0.5rem;
+}
+
+.palettes-block {
+  margin-bottom: 2rem;
+  &:first-child {
+    /* margin-top: 0 */
+  }
+}
+.palette-color {
+  color: #888;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  margin: 0.25rem auto;
+  &.palette-color--selected {
+    color: #fff;
+  }
+}
+
+.palettes-container {
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+
+  & .palette:first-child {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.palette {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  &.palette--light {
+    background-color: #fff;
+  }
+  &.palette--dark {
+    background-color: #000;
+  }
+}
+
+.palette .clipboard {
+  font-family: monospace;
+
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+
+  font-size: 0.725rem;
+  transition: ease opacity 0.2s;
+}
+
+.palette button.button-color {
+  position: relative;
+
+  width: 6rem;
+  height: 6rem;
+  margin: 0.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.5rem;
+
+  & .clipboard {
+    opacity: 0;
+    transition: ease opacity 0.2s;
+  }
+  &:hover {
+    & .clipboard {
+      opacity: 1;
+    }
+  }
+}
+
+.palette button.button-code {
+  position: relative;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.25rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: monospace;
+
+  transition: ease color 0.2s;
+
+  & .clipboard {
+    opacity: 0;
+    transition: ease opacity 0.2s;
+  }
+  &:hover {
+    & .clipboard {
+      opacity: 1;
+    }
+  }
+}
+.palette.palette--light button.button-code {
+  color: #555;
+  background: rgba(1, 1, 1, 0.1);
+  &:hover {
+    color: #222;
+  }
+}
+.palette.palette--dark button.button-code {
+  color: #bbb;
+  background: rgba(255, 255, 255, 0.1);
+  &:hover {
+    color: #fff;
+  }
+}

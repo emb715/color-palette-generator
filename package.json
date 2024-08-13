@@ -1,0 +1,15 @@
+{
+  "name": "color-palette-generator",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "yarn@3.6.4",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "libs:build": "yarn workspace color-generator build",
+    "dev": "yarn workspace web dev",
+    "build": "yarn run libs:build; yarn workspace web build"
+  }
+}

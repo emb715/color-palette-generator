@@ -1,0 +1,17 @@
+// {
+//   "compilerOptions": {
+//     /* Basic Options */
+//     "outDir": "dist",
+//     "rootDir": "src",
+//   },
+//   "include": ["src"],
+//   "references": [ { "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }, { "path": "../../libs/color-generator" }]
+// }
+{
+  "includes": [],
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" },
+  ]
+}
