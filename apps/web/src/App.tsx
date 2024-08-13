@@ -258,14 +258,18 @@ function App() {
           </div>
         )}
       </div>
-      <code
+      <p
         style={{
+          fontFamily: "monospace",
           marginTop: "2rem",
           alignSelf: "flex-start",
         }}
       >
-        by EMB
-      </code>
+        Built with ❤ by{" "}
+        <a href="https://github.com/emb715" target="_blank">
+          EMB
+        </a>
+      </p>
     </>
   );
 }
