@@ -1,5 +1,8 @@
 # color-palette
 
+![Vercel](https://vercelbadge.vercel.app/api/emb715/color-palette-generator)
+
+
 Live
 [https://color-palette.embthings.com/](https://color-palette.embthings.com/)
 
