@@ -37,8 +37,19 @@ type SavedPalettes = Record<
   }
 >;
 
+function colorsToObject(colors: string[]) {
+  return colors.reduce((acc, color, index) => {
+    return {
+      ...acc,
+      [index * 100]: color,
+    };
+  }, {}) satisfies Record<number, string>;
+}
+
 function App() {
   const [color, setColor] = useState<string>(defaultColors.main);
+
+  const [printOption, setPrintOption] = useState<"array" | "object">("array");
 
   const [backgroundColor, setBackgroundColor] = useState<string>(
     defaultColors.backgroundLight
@@ -93,6 +104,18 @@ function App() {
     }
   }, []);
 
+  const getPrintAs = useCallback(
+    (colors: string[]) => {
+      // printOption
+      if (printOption === "array") {
+        return colors;
+      } else if (printOption === "object") {
+        return colorsToObject(colors);
+      }
+    },
+    [printOption]
+  );
+
   return (
     <>
       <div className="container">
@@ -140,6 +163,25 @@ function App() {
                   onChange={setBackgroundColorDark}
                   size={8}
                 />
+              </div>
+            </div>
+            <div className="card">
+              <h4>Print as</h4>
+              <div className="flex" style={{ gap: "0.25rem" }}>
+                <button
+                  className="small"
+                  onClick={() => setPrintOption("array")}
+                  disabled={printOption === "array"}
+                >
+                  Array
+                </button>
+                <button
+                  className="small"
+                  onClick={() => setPrintOption("object")}
+                  disabled={printOption === "object"}
+                >
+                  Object
+                </button>
               </div>
             </div>
           </div>
@@ -202,11 +244,17 @@ function App() {
                             className="button-code"
                             onPointerDown={(e) => {
                               e.preventDefault();
-                              copyToClipboard(JSON.stringify(palette.light));
+                              copyToClipboard(
+                                JSON.stringify(getPrintAs(palette.light))
+                              );
                             }}
                           >
                             <span className="clipboard">COPY</span>
-                            {palettes && JSON.stringify(palette.light)}
+                            {palettes && (
+                              <span className="code">
+                                {JSON.stringify(getPrintAs(palette.light))}
+                              </span>
+                            )}
                           </button>
                         </div>
                         <div
@@ -243,11 +291,17 @@ function App() {
                             className="button-code"
                             onPointerDown={(e) => {
                               e.preventDefault();
-                              copyToClipboard(JSON.stringify(palette.dark));
+                              copyToClipboard(
+                                JSON.stringify(getPrintAs(palette.dark))
+                              );
                             }}
                           >
                             <span className="clipboard">COPY</span>
-                            {palettes && JSON.stringify(palette.dark)}
+                            {palettes && (
+                              <span className="code">
+                                {JSON.stringify(getPrintAs(palette.dark))}
+                              </span>
+                            )}
                           </button>
                         </div>
                       </div>

@@ -2,7 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
@@ -11,6 +10,9 @@ html {
   flex-direction: column;
   flex: 1;
   align-self: stretch;
+
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @keyframes logo-spin {
@@ -143,6 +145,11 @@ html {
     opacity: 0;
     transition: ease opacity 0.2s;
   }
+  & .code {
+    max-width: 100%;
+    text-wrap: nowrap;
+    overflow: hidden;
+  }
   &:hover {
     & .clipboard {
       opacity: 1;
@@ -162,4 +169,17 @@ html {
   &:hover {
     color: #fff;
   }
+}
+
+button {
+  /* padding: 0.6em 1.2em; */
+}
+button.small {
+  padding: 0.3em 0.6em;
+  font-size: 0.765rem;
+  line-height: 1;
+  font-family: monospace;
+}
+button.small:disabled {
+  border-color: #545454;
 }
